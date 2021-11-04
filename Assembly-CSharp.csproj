@@ -59,6 +59,8 @@
      <Compile Include="Assets\Scripts\GoDown.cs" />
      <Compile Include="Assets\Scripts\GoUp.cs" />
      <Compile Include="Assets\Scripts\Laser.cs" />
+     <Compile Include="Assets\Scripts\Asteroid.cs" />
+     <Compile Include="Assets\Scripts\EnemiesSpawn.cs" />
      <None Include="Assets\Materials\Shaders\StarNestSkybox.shader" />
      <None Include="Assets\Materials\Shaders\StarNest.shader" />
  <Reference Include="UnityEngine">
