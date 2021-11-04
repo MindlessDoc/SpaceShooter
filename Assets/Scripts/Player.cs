@@ -9,11 +9,14 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        transform.position = new Vector3(0, -3, 0);
+        transform.position = new Vector3(0, -2.5f, 0);
     }
     public void Moving(Vector3 direction)
     {
-        transform.Translate(direction * _speed * Time.deltaTime);
+        Vector3 additional = direction * _speed * Time.deltaTime;
+        Vector3 goIn = additional + transform.position;
+        if(goIn.y >= -2.5f && goIn.y <= 0.0f && goIn.x >= -2.2f && goIn.x <= 2.2f)
+            transform.Translate(additional);
     }
 
     // Update is called once per frame
