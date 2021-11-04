@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        transform.position = new Vector3(0, -2.5f, 0);
+        transform.position = new Vector3(0, -2.0f, 0);
         _shootButton.onClick.AddListener(Shoot);
         _nextFire = Time.time;
     }
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
     {
         Vector3 additional = direction * _speed * Time.deltaTime;
         Vector3 goIn = additional + transform.position;
-        if(goIn.y >= -2.5f && goIn.y <= 0.0f && goIn.x >= -2.2f && goIn.x <= 2.2f)
+        if(goIn.y >= -2.0f && goIn.y <= 0.5f && goIn.x >= -2.0f && goIn.x <= 2.0f)
             transform.Translate(additional);
     }
 
