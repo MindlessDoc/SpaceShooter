@@ -5,8 +5,6 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     [SerializeField] private float _speed = 3.0f;
-
-    [SerializeField] private GameObject _prefab;
     void Start()
     {
         
@@ -16,6 +14,20 @@ public class Asteroid : MonoBehaviour
     {
         transform.Translate(Vector3.down * _speed * Time.deltaTime);
         if(transform.position.y < -6)
-            Destroy(_prefab);
+            Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Lazer")
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
+        else if (collision.tag == "Player")
+        {
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
+        }
     }
 }
