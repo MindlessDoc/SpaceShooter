@@ -23,19 +23,19 @@ public class EnemiesSpawn : MonoBehaviour
 
     void Update()
     {
-        if (_asteroidNextTime < Time.time)
+        if (_asteroidNextTime < Time.timeSinceLevelLoad)
         {
             Instantiate(_asteroidPrefab, new Vector3(Random.Range(-2.2f, 2.2f), 5.7f, transform.position.z),
                 Quaternion.identity);
-            _asteroidNextTime = Time.time + _asteroidSpawnTime;
+            _asteroidNextTime = Time.timeSinceLevelLoad + _asteroidSpawnTime;
         }
         
-        if (_fragmentNextTime < Time.time)
+        if (_fragmentNextTime < Time.timeSinceLevelLoad)
         {
             var add = Instantiate(_fragmentPrefab, new Vector3(Random.Range(-2.2f, 2.2f), 5.7f, transform.position.z),
                 Quaternion.identity);
             add.GetComponent<Fragment>().FragmentsScore = _fragmentsScore;
-            _fragmentNextTime = Time.time + _fragmentSpawnTime;
+            _fragmentNextTime = Time.timeSinceLevelLoad + _fragmentSpawnTime;
         }
     }
 }

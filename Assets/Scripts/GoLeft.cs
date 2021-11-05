@@ -12,7 +12,7 @@ public class GoLeft : MonoBehaviour
 
     void Start()
     {
-        _prevtTimeClick = Time.time;
+        _prevtTimeClick = Time.timeSinceLevelLoad;
     }
     public void onDownLeft()
     {
@@ -21,7 +21,7 @@ public class GoLeft : MonoBehaviour
         {
             _player.HyperMoving(Vector3.left);
         }
-        _prevtTimeClick = Time.time;
+        _prevtTimeClick = Time.timeSinceLevelLoad;
     }
 
     public void onUpLeft()

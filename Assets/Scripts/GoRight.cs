@@ -13,11 +13,11 @@ public class GoRight : MonoBehaviour
     public void onDownRight()
     {
         _pressed = true;
-        if (Time.time - _prevtTimeClick <= _intervalOnClick)
+        if (Time.timeSinceLevelLoad - _prevtTimeClick <= _intervalOnClick)
         {
             _player.HyperMoving(Vector3.right);
         }
-        _prevtTimeClick = Time.time;
+        _prevtTimeClick = Time.timeSinceLevelLoad;
     }
 
     public void onUpRight()
