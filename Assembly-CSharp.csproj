@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\EnemiesSpawn.cs" />
      <Compile Include="Assets\Scripts\GoPlay.cs" />
      <Compile Include="Assets\Scripts\GoMenu.cs" />
+     <Compile Include="Assets\Scripts\Fragment.cs" />
      <None Include="Assets\Materials\Shaders\StarNestSkybox.shader" />
      <None Include="Assets\Materials\Shaders\StarNest.shader" />
  <Reference Include="UnityEngine">
