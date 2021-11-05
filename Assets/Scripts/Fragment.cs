@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fragment : MonoBehaviour
 {
     [SerializeField] private float _speed = 3.0f;
+    [SerializeField] public FragmentsScore FragmentsScore;
 
     [SerializeField] private AudioClip _loot;
     void Start()
@@ -25,7 +26,8 @@ public class Fragment : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint((_loot), transform.position, 1.0f);
             Destroy(gameObject);
-            PlayerPrefs.SetInt("Fragment", PlayerPrefs.GetInt("Fragment"));
+            PlayerPrefs.SetInt("Fragment", PlayerPrefs.GetInt("Fragment") + 1);
+            FragmentsScore.UpdateScore();
         }
     }
 }

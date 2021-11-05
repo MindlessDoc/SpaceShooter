@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemiesSpawn : MonoBehaviour
 {
+    [SerializeField] private FragmentsScore _fragmentsScore;
+    
     [SerializeField] private GameObject _asteroidPrefab;
     [SerializeField] private float _asteroidSpawnTime;
     private float _asteroidNextTime;
@@ -30,8 +32,9 @@ public class EnemiesSpawn : MonoBehaviour
         
         if (_fragmentNextTime < Time.time)
         {
-            Instantiate(_fragmentPrefab, new Vector3(Random.Range(-2.2f, 2.2f), 5.7f, transform.position.z),
+            var add = Instantiate(_fragmentPrefab, new Vector3(Random.Range(-2.2f, 2.2f), 5.7f, transform.position.z),
                 Quaternion.identity);
+            add.GetComponent<Fragment>().FragmentsScore = _fragmentsScore;
             _fragmentNextTime = Time.time + _fragmentSpawnTime;
         }
     }
