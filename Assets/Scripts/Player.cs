@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _rateFire;
 
     [SerializeField] private AudioClip _boom;
+    [SerializeField] private AudioClip _hypermove;
     
     
     // Start is called before the first frame update
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
             && Time.time - _prevHyperMove >= _hyperMoveInterval)
         {
             _prevHyperMove = Time.time;
+            AudioSource.PlayClipAtPoint(_hypermove, transform.position, 0.3f);
             transform.Translate(additional);
         }
     }
