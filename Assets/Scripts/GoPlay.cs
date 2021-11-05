@@ -15,6 +15,6 @@ public class GoPlay : MonoBehaviour
     }
     private void GoToGameScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }
