@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
         _shootButton.onClick.AddListener(Shoot);
         _nextFire = Time.timeSinceLevelLoad;
         _prevHyperMove = Time.timeSinceLevelLoad;
+        _speed = PlayerPrefs.GetFloat("PlayerSpeed", 2.0f);
+        PlayerPrefs.SetInt("Fragment", 30);
     }
     public void Moving(Vector3 direction)
     {
