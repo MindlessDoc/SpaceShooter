@@ -16,11 +16,11 @@ public class EnemiesSpawn : MonoBehaviour
 
     void Update()
     {
-        if (_asteroidSpawnTime < Time.time)
+        if (_asteroidNextTime < Time.time)
         {
             Instantiate(_asteroidPrefab, new Vector3(Random.Range(-2.2f, 2.2f), 5.7f, transform.position.z),
                 Quaternion.identity);
-            _asteroidSpawnTime = Time.time + _asteroidSpawnTime;
+            _asteroidNextTime = Time.time + _asteroidSpawnTime;
         }
     }
 }

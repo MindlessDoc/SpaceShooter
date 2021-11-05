@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     
     private float _nextFire;
     [SerializeField] private float _rateFire;
+
+    [SerializeField] private AudioClip _boom;
+    
     
     // Start is called before the first frame update
     private void Start()
@@ -37,6 +40,12 @@ public class Player : MonoBehaviour
             Instantiate(_lazerPrefab, laserSpawn, Quaternion.identity);
             _nextFire = Time.time + _rateFire;
         }
+    }
+
+    public void Die()
+    {
+        AudioSource.PlayClipAtPoint(_boom, transform.position, 1.0f);
+        Destroy(gameObject);
     }
 
     // Update is called once per frame

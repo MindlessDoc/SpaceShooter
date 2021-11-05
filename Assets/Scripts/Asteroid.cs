@@ -5,6 +5,8 @@ using UnityEngine;
 public class Asteroid : MonoBehaviour
 {
     [SerializeField] private float _speed = 3.0f;
+
+    [SerializeField] private AudioClip _boom;
     void Start()
     {
         
@@ -21,13 +23,15 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.tag == "Lazer")
         {
+            AudioSource.PlayClipAtPoint(_boom, transform.position, 1.0f);
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
         else if (collision.tag == "Player")
         {
+            AudioSource.PlayClipAtPoint(_boom, transform.position, 1.0f);
             Destroy(gameObject);
-            Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Player>().Die();
         }
     }
 }
