@@ -7,8 +7,20 @@ public class GoLeft : MonoBehaviour
     [SerializeField] private Player _player;
     private bool _pressed = false;
     
+    private float _prevtTimeClick;
+    [SerializeField] private float _intervalOnClick = 0.2f;
+
+    void Start()
+    {
+        _prevtTimeClick = Time.time;
+    }
     public void onDownLeft()
     {
+        if (Time.time - _prevtTimeClick <= _intervalOnClick)
+        {
+            _player.HyperMoving(Vector3.left);
+        }
+        _prevtTimeClick = Time.time;
         _pressed = true;
     }
 

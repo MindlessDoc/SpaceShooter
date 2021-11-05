@@ -7,8 +7,16 @@ public class GoRight : MonoBehaviour
     [SerializeField] private Player _player;
     private bool _pressed = false;
     
+    private float _prevtTimeClick;
+    [SerializeField] private float _intervalOnClick = 0.2f;
+    
     public void onDownRight()
     {
+        if (Time.time - _prevtTimeClick <= _intervalOnClick)
+        {
+            _player.HyperMoving(Vector3.right);
+        }
+        _prevtTimeClick = Time.time;
         _pressed = true;
     }
 

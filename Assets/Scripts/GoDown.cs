@@ -6,7 +6,7 @@ public class GoDown : MonoBehaviour
 {
     [SerializeField] private Player _player;
     private bool _pressed = false;
-    
+
     public void onDownDown()
     {
         _pressed = true;
