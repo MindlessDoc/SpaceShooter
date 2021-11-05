@@ -16,12 +16,12 @@ public class GoLeft : MonoBehaviour
     }
     public void onDownLeft()
     {
+        _pressed = true;
         if (Time.time - _prevtTimeClick <= _intervalOnClick)
         {
             _player.HyperMoving(Vector3.left);
         }
         _prevtTimeClick = Time.time;
-        _pressed = true;
     }
 
     public void onUpLeft()
